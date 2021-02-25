@@ -1,7 +1,7 @@
 ---
 title: ssh密钥生成
 date: 2021-02-23 15:12:59
-tags:
+tags: [ GitHub, GitLab ]
 ---
 
 如何生成SSH key
@@ -84,6 +84,6 @@ cat ~/.ssh/id_rsa.pub
 第三步：将ssh key添加到GitHub中
 -----------------------------  
 
-<img src="img/1.png">  
+<img src="/img/ssh_添加密钥.png">  
 
 三步完成就添加成功了.
