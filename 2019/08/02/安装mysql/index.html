@@ -11,7 +11,7 @@
   
   <title>
     
-      favicon 
+      安装mysql 
       
       
       |
@@ -123,36 +123,97 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">favicon</div>
+      <div class="post-title">安装mysql</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2021-02-24 18:38:10
+          2019-08-02 14:51:14
         </span>
         
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="Tags"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/Mysql/" title="Mysql">
+                    <b>#</b> Mysql
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
       <div class="markdown-body">
-        
+        <h2 id="安装Mysql"><a href="#安装Mysql" class="headerlink" title="安装Mysql"></a>安装Mysql</h2><p>在子系统中执行以下命令安装<code>Mysql</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>安装成功之后无法进入mysql，需要修改密码，如下操作：<br>1.进入<code>/etc/mysql/</code>目录，并用root权限打开debian.cnf文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;mysql</span><br><span class="line">sudo vim debian.cnf</span><br></pre></td></tr></table></figure>
+
+<p>2.先启动mysql服务，使用这个文件中的用户名和密码进入mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p</span><br></pre></td></tr></table></figure>
+
+<p>3.然后修改密码为<code>123456</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="卸载mysql"><a href="#卸载mysql" class="headerlink" title="卸载mysql"></a>卸载mysql</h2><p>先杀死mysql进程，然后再进行下面步骤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove mysql* --purge      &#x2F;&#x2F;步骤一</span><br><span class="line">sudo apt-get remove apparmor    &#x2F;&#x2F;步骤二</span><br><span class="line">dpkg -l |grep ^rc|awk &#39;&#123;print $2&#125;&#39; |sudo xargs dpkg -P   &#x2F;&#x2F;清除残留数据</span><br></pre></td></tr></table></figure>
+
+<p>如果安装mysql 无限卡死 比如安装到90%以上不动，请取消当前操作（ctrl + z），卸载mysql的依赖包，在安装</p>
+
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
+              <a href="/2019/07/25/ssh%E7%94%9F%E6%88%90/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2021-02-24 18:38:10
+              2019-08-02 14:51:14
             </span>
             
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="Tags"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/Mysql/" title="Mysql">
+                        <b>#</b> Mysql
+                      </a>
+                    </span>
+                    
+                  </span>
+              
           </div>
           <div class="post-foot-prev">
+            
+              <a href="/2021/02/23/Hexo%E4%B8%BB%E9%A2%98/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
       
     </div>
     
+  <div class="post-catalog" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Mysql"><span class="toc-text">安装Mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDmysql"><span class="toc-text">卸载mysql</span></a></li></ol>
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">

@@ -11,7 +11,7 @@
   
   <title>
     
-      ssh密钥生成 
+      Hexo主题 
       
       
       |
@@ -123,11 +123,11 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">ssh密钥生成</div>
+      <div class="post-title">Hexo主题</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2021-02-23 15:12:59
+          2021-02-23 16:20:26
         </span>
         
               <span class="post-tags">
@@ -140,8 +140,8 @@ MathJax = {
                 </span>
                 
                 <span class="span--tag">
-                  <a href="/tags/GitLab/" title="GitLab">
-                    <b>#</b> GitLab
+                  <a href="/tags/Hexo/" title="Hexo">
+                    <b>#</b> Hexo
                   </a>
                 </span>
                 
@@ -149,46 +149,30 @@ MathJax = {
           
       </div>
       <div class="markdown-body">
-        <h1 id="如何生成SSH-key"><a href="#如何生成SSH-key" class="headerlink" title="如何生成SSH key"></a>如何生成SSH key</h1><p>SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制.</p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li>检查SSH keys是否存在</li>
-<li>生成新的ssh key</li>
-<li>将ssh key添加到GitHub中</li>
-</ul>
-<h2 id="第一步：检查ssh-keys是否存在"><a href="#第一步：检查ssh-keys是否存在" class="headerlink" title="第一步：检查ssh keys是否存在"></a>第一步：检查ssh keys是否存在</h2><p>进入到ssh目录下(在根目录下执行)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br></pre></td></tr></table></figure>
-<p>输入ls查看该目录下文件，如果有文件 <code>id_rsa.pub</code> 或 <code>id_dsa.pub</code> (例如下)，则直接进入步骤3将SSH key添加到GitHub中，否则进入第二步生成SSH key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rzhzhou@DESKTOP-VMA5FA6:&#x2F;mnt&#x2F;d&#x2F;cmder$ cd ~&#x2F;.ssh</span><br><span class="line">rzhzhou@DESKTOP-VMA5FA6:~&#x2F;.ssh$ ls</span><br><span class="line">id_rsa  id_rsa.pub  known_hosts</span><br></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo的主题库中，花里胡哨的的主题并不少，本着程序猿简约至上的原则， 借鉴了其他主题开发者的思想后， 弄出了一款比较简介的主题。</p>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p><strong>主页</strong><br><img src="/img/hexo_主页.png"/></p>
+<p><strong>子页</strong><br><img src="/img/hexo_子页.png"/></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>下载地址 <a target="_blank" rel="noopener" href="https://github.com/rzhzhou/hexo-themes-rzz">hexo-themes-rzz</a>。<br>在博客运行目录下执行 <code>https://github.com/rzhzhou/hexo-themes-rzz.git</code></p>
+<p>执行完后在主配置文件<code>_config.yml</code> 修改 <code>theme: rzz</code>  。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: rzz</span><br></pre></td></tr></table></figure>
 
-
-
-
-<h2 id="第二步-生成新的ssh-key"><a href="#第二步-生成新的ssh-key" class="headerlink" title="第二步: 生成新的ssh key"></a>第二步: 生成新的ssh key</h2><p>在命令行中输入以下命令生成<code>ssh key</code>(根目录下)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rzhzhou@DESKTOP-VMA5FA6:~$ ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-
-<p>会出现以下信息, 一路enter 或者y.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Generating public&#x2F;private rsa key pair.                                      </span><br><span class="line">Enter file in which to save the key (&#x2F;home&#x2F;rzhzhou&#x2F;.ssh&#x2F;id_rsa):             </span><br><span class="line">&#x2F;home&#x2F;rzhzhou&#x2F;.ssh&#x2F;id_rsa already exists.                                    </span><br><span class="line">Overwrite (y&#x2F;n)? y                                                           </span><br><span class="line">Enter passphrase (empty for no passphrase):                                  </span><br><span class="line">Enter same passphrase again:                                                 </span><br><span class="line">Your identification has been saved in &#x2F;home&#x2F;rzhzhou&#x2F;.ssh&#x2F;id_rsa.             </span><br><span class="line">Your public key has been saved in &#x2F;home&#x2F;rzhzhou&#x2F;.ssh&#x2F;id_rsa.pub.             </span><br><span class="line">The key fingerprint is:                                                      </span><br><span class="line">SHA256:gKAPmDU3u5ajZIQxDnbr8aPV3a4z82Vi&#x2F;2ahc5Ba7PU rzhzhou@DESKTOP-VMA5FA6   </span><br><span class="line">The key&#39;s randomart image is:                                                </span><br><span class="line">+---[RSA 2048]----+                                                          </span><br><span class="line">|+.+.o            |                                                          </span><br><span class="line">|&#x3D;B.+.+           |                                                          </span><br><span class="line">|*..oo .          |                                                          </span><br><span class="line">| +. oo... .      |                                                          </span><br><span class="line">|  +.&#x3D;+ .S. .. .  |                                                          </span><br><span class="line">| o oo..   .  &#x3D; o |                                                          </span><br><span class="line">|  ..       ++o+ o|                                                          </span><br><span class="line">|         +o.&#x3D;+ +E|                                                          </span><br><span class="line">|         .&#x3D;. .*. |                                                          </span><br><span class="line">+----[SHA256]-----+                                                          </span><br></pre></td></tr></table></figure>
-<p>按enter 是选择默认情况.下面只需要查看生成的ssh key就可以了,下面只需要找到ssh key即可.</p>
-<p><strong>查看<code>id_rsa</code>文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>会出现类型以下信息：（<code>id_rsa.pub</code>文件内容）</p>
-<pre><code>ssh- rsaAAAAB3NzaC1yc2EAAAADAQABAAABAQDLAgA7xxvU3jodJGEcJ+biK/rRaAGSIFo6tqUNtMmbDUzUWJsSqEiAYzlMgcZNYd6xynq/SDHiwUAPU2NsLqwDz6aPpk5vHXAC+Y+XISH+vbBDYrx/Zq8UhnuqbaBLjNdLK2rhJQlZGQsK78Uv5PogprpW0/hMRKZ08fq7Sbh37dHnAqQLM2+ky0Ag75LfcSyuMpYVphaBboaxIBHdw/pbHC+6Ku3AV/HRoZAnqkKtCOnYuJPGEta1YzMYDCqZODdQQMpKqTyJwmixCe0ceLv7piWtilLEfm4Os56JH4t9K/eVa1Y+MtoUEeoKVPn+Q1bnMo9bcs8rZf7o8T4ZLZPx rzhzhou@DESKTOP-VMA5FA6  
-</code></pre>
-<h2 id="第三步：将ssh-key添加到GitHub中"><a href="#第三步：将ssh-key添加到GitHub中" class="headerlink" title="第三步：将ssh key添加到GitHub中"></a>第三步：将ssh key添加到GitHub中</h2><img src="/img/ssh_添加密钥.png">  
-
-<p>三步完成就添加成功了.</p>
+<p>上述就是目的和使用方法。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
+              <a href="/2019/08/02/%E5%AE%89%E8%A3%85mysql/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2021-02-23 15:12:59
+              2021-02-23 16:20:26
             </span>
             
                   <span class="post-tags">
@@ -201,8 +185,8 @@ MathJax = {
                     </span>
                     
                     <span class="span--tag">
-                      <a href="/tags/GitLab/" title="GitLab">
-                        <b>#</b> GitLab
+                      <a href="/tags/Hexo/" title="Hexo">
+                        <b>#</b> Hexo
                       </a>
                     </span>
                     
@@ -210,11 +194,6 @@ MathJax = {
               
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2021/02/24/hello-world/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -224,7 +203,7 @@ MathJax = {
   <div class="post-catalog" id="catalog">
     <div class="title">Contents</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90SSH-key"><span class="toc-text">如何生成SSH key</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%A3%80%E6%9F%A5ssh-keys%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-text">第一步：检查ssh keys是否存在</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84ssh-key"><span class="toc-text">第二步: 生成新的ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%B0%86ssh-key%E6%B7%BB%E5%8A%A0%E5%88%B0GitHub%E4%B8%AD"><span class="toc-text">第三步：将ssh key添加到GitHub中</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F"><span class="toc-text">样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a></li></ol>
     </div>
   </div>
 
@@ -298,7 +277,7 @@ MathJax = {
   
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/rzhzhou">Copyright © Rzhzhou 2018 - 2021</a>
+        <a target="_blank" rel="noopener" href="https://github.com/rzhzhou">Copyright © Rzhzhou 2019 - 2021</a>
         
     </div>
   
